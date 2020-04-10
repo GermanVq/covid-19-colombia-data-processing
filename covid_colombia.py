@@ -25,4 +25,11 @@ num_cities.shape[0]
 """ 
 [3. Lista de minucipios afectadas sin repetir]
 """
-data['Ciudad de ubicación'].unique()
+list_infected = data['Ciudad de ubicación'].unique()
+
+""" 
+[4. Número de personas que se encuentran en atención en casa]
+"""
+in_house = data[data['Atención**'] == 'Casa']
+in_house.shape[0]
+
