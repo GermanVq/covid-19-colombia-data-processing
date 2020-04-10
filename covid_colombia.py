@@ -71,7 +71,14 @@ list_dep = data['Departamento o Distrito'].unique()
 print('Lista de departamenos afectados', list_dep)
 
 """ 
-[10.Ordene de mayor a menor por tipo de atención]
+[10. Ordene de mayor a menor por tipo de atención]
 """
 type_atten = data.groupby('Atención**').size().sort_values(ascending=False)
 print('Orden de mayor a menor tipo de atención:', type_atten)
+
+""" 
+[11. Liste de mayor a menor los 10 departamentos con mas casos de
+contagiados]
+"""
+dp_more = data.groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
+print('Los 10 departamentos con mas contagiados son:', dp_more)
