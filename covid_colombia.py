@@ -45,3 +45,8 @@ recovered.shape[0]
 recovered = data[data['Atención**'] == 'Fallecido']
 recovered.shape[0]
 
+""" 
+[7. Orden de Mayor a menor por tipo de caso (Importado, en estudio,
+Relacionado)]
+"""
+data.groupby('Tipo*').size().sort_values(ascending=False)
