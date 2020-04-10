@@ -33,3 +33,8 @@ list_infected = data['Ciudad de ubicación'].unique()
 in_house = data[data['Atención**'] == 'Casa']
 in_house.shape[0]
 
+""" 
+[5. Número de personas que se encuentran recuperados]
+"""
+recovered = data[data['Atención**'] == 'Recuperado']
+recovered.shape[0]
