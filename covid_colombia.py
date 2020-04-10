@@ -22,3 +22,7 @@ num_infected = data.shape[0]
 num_cities = data.groupby('Ciudad de ubicación').size()
 num_cities.shape[0]
 
+""" 
+[3. Lista de minucipios afectadas sin repetir]
+"""
+data['Ciudad de ubicación'].unique()
