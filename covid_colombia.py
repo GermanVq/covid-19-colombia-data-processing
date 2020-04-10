@@ -16,3 +16,9 @@ data = pd.read_csv(url)
 """
 num_infected = data.shape[0]
 
+""" 
+[2. número total de minucipios afectadas]
+"""
+num_cities = data.groupby('Ciudad de ubicación').size()
+num_cities.shape[0]
+
