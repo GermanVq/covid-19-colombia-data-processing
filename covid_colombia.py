@@ -12,12 +12,12 @@ url = "covid_colombia_09_04_2020.csv"
 data = pd.read_csv(url)
 
 """ 
-[1. número total de contagiados]
+[1. Número total de contagiados]
 """
 num_infected = data.shape[0]
 
 """ 
-[2. número total de minucipios afectadas]
+[2. Número total de minucipios afectadas]
 """
 num_cities = data.groupby('Ciudad de ubicación').size()
 num_cities.shape[0]
@@ -38,3 +38,10 @@ in_house.shape[0]
 """
 recovered = data[data['Atención**'] == 'Recuperado']
 recovered.shape[0]
+
+""" 
+[6. Número de personas que ha fallecido]
+"""
+recovered = data[data['Atención**'] == 'Fallecido']
+recovered.shape[0]
+
