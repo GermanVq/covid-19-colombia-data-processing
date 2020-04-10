@@ -50,3 +50,14 @@ recovered.shape[0]
 Relacionado)]
 """
 data.groupby('Tipo*').size().sort_values(ascending=False)
+
+""" 
+[8. . Número de departamentos afectados]
+"""
+num_dep = data.groupby('Departamento o Distrito').size()
+num_dep.shape[0]
+
+""" 
+[9. Liste los departamentos afectados(sin repetirlos)]
+"""
+list_dep = data['Departamento o Distrito'].unique()
