@@ -89,3 +89,10 @@ fallecidos]
 """
 dp_top10_deceased = data[data['Atención**']=='Fallecido'].groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
 print('Los 10 departamentos con mas fallecidos son:', dp_top10_deceased)
+
+""" 
+[13. Liste de mayor a menor los 10 departamentos con mas casos de
+recuperados]
+"""
+dp_top10_recovered = data[data['Atención**']=='Recuperado'].groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
+print('Los 10 departamentos con mas recuperados son:', dp_top10_recovered)
