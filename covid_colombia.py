@@ -80,26 +80,33 @@ print('Orden de mayor a menor tipo de atención:', type_atten)
 [11. Liste de mayor a menor los 10 departamentos con mas casos de
 contagiados]
 """
-dp_top10_infected = data.groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
+dp_top10_infected = data.groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10)
 print('Los 10 departamentos con mas contagiados son:', dp_top10_infected)
 
 """ 
 [12. Liste de mayor a menor los 10 departamentos con mas casos de
 fallecidos]
 """
-dp_top10_deceased = data[data['Atención**']=='Fallecido'].groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
+dp_top10_deceased = data[data['Atención**']=='Fallecido'].groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10)
 print('Los 10 departamentos con mas fallecidos son:', dp_top10_deceased)
 
 """ 
 [13. Liste de mayor a menor los 10 departamentos con mas casos de
 recuperados]
 """
-dp_top10_recovered = data[data['Atención**']=='Recuperado'].groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
+dp_top10_recovered = data[data['Atención**']=='Recuperado'].groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10)
 print('Los 10 departamentos con mas recuperados son:', dp_top10_recovered)
 
 """ 
 [14. Liste de mayor a menor los 10 municipios con mas casos de
 contagiados]
 """
-mp_top10_infected = data.groupby('Ciudad de ubicación').size().head(10).sort_values(ascending=False)
+mp_top10_infected = data.groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10)
 print('Los 10 Municipios con mas infectados son:', mp_top10_infected)
+
+""" 
+[15. Liste de mayor a menor los 10 municipios con mas casos de
+fallecidos]
+"""
+mp_top10_deceased = data[data['Atención**']=='Fallecido'].groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10)
+print('Los 10 municipios con mas fallecidos son:', mp_top10_deceased)
