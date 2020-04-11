@@ -80,5 +80,12 @@ print('Orden de mayor a menor tipo de atención:', type_atten)
 [11. Liste de mayor a menor los 10 departamentos con mas casos de
 contagiados]
 """
-dp_more = data.groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
-print('Los 10 departamentos con mas contagiados son:', dp_more)
+dp_top10_infected = data.groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
+print('Los 10 departamentos con mas contagiados son:', dp_top10_infected)
+
+""" 
+[12. Liste de mayor a menor los 10 departamentos con mas casos de
+fallecidos]
+"""
+dp_top10_deceased = data[data['Atención**']=='Fallecido'].groupby('Departamento o Distrito').size().head(10).sort_values(ascending=False)
+print('Los 10 departamentos con mas fallecidos son:', dp_top10_deceased)
