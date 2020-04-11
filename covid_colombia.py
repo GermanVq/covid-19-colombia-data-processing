@@ -117,3 +117,11 @@ recuperados]
 """
 mp_top10_recovered = data[data['Atención**']=='Recuperado'].groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10)
 print('Los 10 municipios con mas recuperados son:', mp_top10_recovered)
+
+""" 
+[17. Liste agrupado por departamento y en orden de Mayor a menor las
+ciudades con mas casos de contagiados]
+"""
+dp_mp = data.groupby(['Departamento o Distrito','Ciudad de ubicación']).size().sort_values(ascending=False)
+print('Lista de  Departamenos agrupudos de mayor a menor con ciudades con mas casos: ', dp_mp)
+
