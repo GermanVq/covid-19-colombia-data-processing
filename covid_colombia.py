@@ -110,3 +110,10 @@ fallecidos]
 """
 mp_top10_deceased = data[data['Atención**']=='Fallecido'].groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10)
 print('Los 10 municipios con mas fallecidos son:', mp_top10_deceased)
+
+""" 
+[16. Liste de mayor a menor los 10 municipios con mas casos de
+recuperados]
+"""
+mp_top10_recovered = data[data['Atención**']=='Recuperado'].groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10)
+print('Los 10 municipios con mas recuperados son:', mp_top10_recovered)
