@@ -152,3 +152,11 @@ contagios]
 """
 diagnosis_date = data.groupby('Fecha de diagnóstico').size().sort_values(ascending = False)
 print('Fechas de mayor a menor con mas infectados:', diagnosis_date)
+
+""" 
+[22. Diga cual es la tasa de mortalidad y recuperación que tiene toda 
+Colombia]
+"""
+z = data.groupby('Atención**').size().sort_values(ascending = False)
+r = ((z / z.sum()) * 100)
+print('Tasa de mortilidad y recuperacion:', r)
