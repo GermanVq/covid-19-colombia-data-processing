@@ -131,3 +131,10 @@ departamento]
 """
 dp_men_women_infected = data.groupby(['Departamento o Distrito','Ciudad de ubicación','Sexo']).size()
 print('Numero de hombre y mujeres infectados por Ciudad de cada departamento es:', dp_men_women_infected)
+
+""" 
+[19. Liste el promedio de edad de contagiados por hombre y mujeres por
+ciudad por departamento]
+"""
+data.drop('ID de caso', axis = 1)
+data.groupby(['Departamento o Distrito', 'Ciudad de ubicación','Sexo']).mean()
