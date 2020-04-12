@@ -145,3 +145,10 @@ data.groupby(['Departamento o Distrito', 'Ciudad de ubicación','Sexo']).mean()
 country_p = data.groupby('País de procedencia').size().sort_values(ascending = False)
 print('Lista de paises de mayor a menos de contagiados por:', country_p)
 
+
+""" 
+[21. Liste de mayor a menor las fechas donde se presentaron mas
+contagios]
+"""
+diagnosis_date = data.groupby('Fecha de diagnóstico').size().sort_values(ascending = False)
+print('Fechas de mayor a menor con mas infectados:', diagnosis_date)
