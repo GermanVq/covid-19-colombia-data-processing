@@ -125,3 +125,9 @@ ciudades con mas casos de contagiados]
 dp_mp = data.groupby(['Departamento o Distrito','Ciudad de ubicación']).size().sort_values(ascending=False)
 print('Lista de  Departamenos agrupudos de mayor a menor con ciudades con mas casos: ', dp_mp)
 
+""" 
+[18. Número de Mujeres y hombres contagiados por ciudad por
+departamento]
+"""
+dp_men_women_infected = data.groupby(['Departamento o Distrito','Ciudad de ubicación','Sexo']).size()
+print('Numero de hombre y mujeres infectados por Ciudad de cada departamento es:', dp_men_women_infected)
