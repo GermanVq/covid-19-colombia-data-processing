@@ -138,3 +138,10 @@ ciudad por departamento]
 """
 data.drop('ID de caso', axis = 1)
 data.groupby(['Departamento o Distrito', 'Ciudad de ubicación','Sexo']).mean()
+
+""" 
+[20. Liste de mayor a menor el número de contagiados por país de procedencia]
+"""
+country_p = data.groupby('País de procedencia').size().sort_values(ascending = False)
+print('Lista de paises de mayor a menos de contagiados por:', country_p)
+
