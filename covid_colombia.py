@@ -158,13 +158,25 @@ print('Fechas de mayor a menor con mas infectados:', diagnosis_date)
 Colombia]
 """
 z = data.groupby('Atención**').size().sort_values(ascending = False)
-z / z.sum() * 100
-
+k = z / z.sum() * 100
+print('Tasa de mortalidad en toda colombia es:',k.iloc[4:5])
+print('Tasa de recuperados en toda colombia es:',k.iloc[2:3])
 
 """ 
 [23. Liste la tasa de mortalidad y recuperación que tiene cada
 departamento]
 """
 z = data.groupby(['Departamento o Distrito','Atención**']).size()
-z / z.sum() * 100
+k = z / z.sum() * 100
 
+
+""" 
+[24. Liste la tasa de mortalidad y recuperación que tiene cada ciudad]
+"""
+z = data.groupby(['Ciudad de ubicación','Atención**']).size()
+k = z / z.sum() * 100
+
+""" 
+[25. Liste por cada ciudad la cantidad de personas por atención]
+"""
+data.groupby(['Ciudad de ubicación','Atención**']).size()
