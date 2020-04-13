@@ -193,6 +193,7 @@ prom_ed.drop('ID de caso', axis = 1)
 [27. Grafique las curvas de contagio, muerte y recuperación de toda
 Colombia acumulados]
 """
+data.groupby('Fecha de diagnóstico').size().cumsum().plot()
 
 """ 
 [28. Grafique las curvas de contagio, muerte y recuperación de los 10
@@ -218,5 +219,25 @@ print('Liste de mayor a menor la cantidad de fallecidos por edad en toda Colombi
 """
 list_at = data.groupby('Atención**').size()
 sm = data.groupby('Atención**').size().sum()
-res = (list_at.iloc[0:7]*100)/sm
+res = (list_at.iloc[0:7]/sm)*100
 print('Porcentajes por atención:', res)
+
+""" 
+[32. Haga un gráfico de barras por atención de toda Colombia]
+"""
+at = data.groupby('Atención**').size()
+at.plot(kind='bar')
+""" 
+[33. Haga un gráfico de barras por Sexo de toda Colombia]
+"""
+sx = data.groupby('Sexo').size()
+sx.plot(kind='bar')
+""" 
+[34. Haga un gráfico de barras por tipo de toda Colombia]
+"""
+tp = data.groupby('Tipo*').size()
+tp.plot(kind='bar')
+""" 
+[35. Haga un gráfico de barras del número de contagiados, recuperados y
+fallecidos por fecha de toda Colombia]
+"""
