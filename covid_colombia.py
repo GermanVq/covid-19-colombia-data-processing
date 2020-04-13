@@ -205,22 +205,22 @@ print('Grafica acumulada de Contagio, Fallecidos y Recuperados :', inf_plot, rec
 [28. Grafique las curvas de contagio, muerte y recuperación de los 10
 departamentos con mas casos de contagiados acumulados]
 """
-dc = data[data['Atención**']=='Fallecido']
-rc = data[data['Atención**']=='Recuperado']
+dc1 = data[data['Atención**']=='Fallecido']
+rc1 = data[data['Atención**']=='Recuperado']
 inf_plot_dep = data.groupby(['Departamento o Distrito' ]).size().sort_values(ascending=False).head(10).plot()
-dec_plot_dep = dc.groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10).plot()
-rec_plot_dep = rc.groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10).plot()
+dec_plot_dep = dc1.groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10).plot()
+rec_plot_dep = rc1.groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10).plot()
 print('Grafica acumulada de Contagio, Fallecidos y Recuperados :', inf_plot_dep, rec_plot_dep, dec_plot_dep)
 
 """ 
 [29. Grafique las curvas de contagio, muerte y recuperación de las 10
 ciudades con mas casos de contagiados acumulados]
 """
-dc = data[data['Atención**']=='Fallecido']
-rc = data[data['Atención**']=='Recuperado']
+dc2 = data[data['Atención**']=='Fallecido']
+rc2 = data[data['Atención**']=='Recuperado']
 inf_plot_ct = data.groupby(['Ciudad de ubicación' ]).size().sort_values(ascending=False).head(10).plot()
-dec_plot_ct = dc.groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10).plot()
-rec_plot_ct = rc.groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10).plot()
+dec_plot_ct = dc2.groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10).plot()
+rec_plot_ct = rc2.groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10).plot()
 print('Grafica acumulada de Contagio, Fallecidos y Recuperados :', inf_plot_ct, rec_plot_ct, dec_plot_ct)
 
 """ 
@@ -239,22 +239,43 @@ sm = data.groupby('Atención**').size().sum()
 res = (list_at.iloc[0:7]/sm)*100
 print('Porcentajes por atención:', res)
 
+
 """ 
 [32. Haga un gráfico de barras por atención de toda Colombia]
 """
 at = data.groupby('Atención**').size()
 at.plot(kind='bar')
+
+
 """ 
 [33. Haga un gráfico de barras por Sexo de toda Colombia]
 """
 sx = data.groupby('Sexo').size()
 sx.plot(kind='bar')
+
+
 """ 
 [34. Haga un gráfico de barras por tipo de toda Colombia]
 """
 tp = data.groupby('Tipo*').size()
 tp.plot(kind='bar')
+
+
 """ 
 [35. Haga un gráfico de barras del número de contagiados, recuperados y
 fallecidos por fecha de toda Colombia]
 """
+
+
+at1 = data.groupby('Fecha de diagnóstico').size().plot(kind ='bar')
+print('Grafica de barras con numero de contagiado por fecha:', at)
+
+
+dc3 = data[data['Atención**']=='Fallecido']
+dc_at = dc3.groupby(['Fecha de diagnóstico','Atención**']).size().plot(kind ='bar')
+print('Grafica de barras con numero de fallecidos por fecha:', dc_at)
+
+
+rc3 = data[data['Atención**']=='Recuperado']
+rc_at = rc3.groupby(['Fecha de diagnóstico','Atención**']).size().plot(kind ='bar')
+print('Grafica de barras con numero de recuperados por fecha:', rc_at)
