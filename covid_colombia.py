@@ -187,3 +187,36 @@ data.groupby(['Ciudad de ubicación','Atención**']).size()
 """
 prom_ed = data.groupby(['Ciudad de ubicación','Sexo']).mean()
 prom_ed.drop('ID de caso', axis = 1)
+
+
+""" 
+[27. Grafique las curvas de contagio, muerte y recuperación de toda
+Colombia acumulados]
+"""
+
+""" 
+[28. Grafique las curvas de contagio, muerte y recuperación de los 10
+departamentos con mas casos de contagiados acumulados]
+"""
+
+""" 
+[29. Grafique las curvas de contagio, muerte y recuperación de las 10
+ciudades con mas casos de contagiados acumulados]
+"""
+
+
+""" 
+[30. Liste de mayor a menor la cantidad de fallecidos por edad en toda
+Colombia.]
+"""
+a_deceased = data[data['Atención**'] == 'Fallecido'].groupby('Edad').size().sort_values(ascending = False)
+print('Liste de mayor a menor la cantidad de fallecidos por edad en toda Colombia: ', a_deceased)
+
+
+""" 
+[31. Liste el porcentaje de personas por atención de toda Colombia]
+"""
+list_at = data.groupby('Atención**').size()
+sm = data.groupby('Atención**').size().sum()
+res = (list_at.iloc[0:7]*100)/sm
+print('Porcentajes por atención:', res)
