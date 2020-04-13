@@ -193,7 +193,13 @@ prom_ed.drop('ID de caso', axis = 1)
 [27. Grafique las curvas de contagio, muerte y recuperación de toda
 Colombia acumulados]
 """
-data.groupby('Fecha de diagnóstico').size().cumsum().plot()
+
+dc = data[data['Atención**']=='Fallecido']
+rc = data[data['Atención**']=='Recuperado']
+inf_plot = data.groupby('Fecha de diagnóstico').size().cumsum().plot()
+dec_plot = dc.groupby('Fecha de diagnóstico').size().cumsum().plot()
+rec_plot = rc.groupby('Fecha de diagnóstico').size().cumsum().plot()
+print('Grafica acumulada de Contagio, Fallecidos y Recuperados :', inf_plot, rec_plot, dec_plot)
 
 """ 
 [28. Grafique las curvas de contagio, muerte y recuperación de los 10
