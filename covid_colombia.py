@@ -136,9 +136,9 @@ print('Numero de hombre y mujeres infectados por Ciudad de cada departamento es:
 [19. Liste el promedio de edad de contagiados por hombre y mujeres por
 ciudad por departamento]
 """
-data.drop('ID de caso', axis = 1)
-data.groupby(['Departamento o Distrito', 'Ciudad de ubicación','Sexo']).mean()
 
+prom_ed = data.groupby(['Departamento o Distrito', 'Ciudad de ubicación','Sexo']).mean()
+prom_ed.drop('ID de caso', axis = 1)
 """ 
 [20. Liste de mayor a menor el número de contagiados por país de procedencia]
 """
@@ -180,3 +180,10 @@ k = z / z.sum() * 100
 [25. Liste por cada ciudad la cantidad de personas por atención]
 """
 data.groupby(['Ciudad de ubicación','Atención**']).size()
+
+
+""" 
+[26. Liste el promedio de edad por sexo por cada ciudad de contagiados]
+"""
+prom_ed = data.groupby(['Ciudad de ubicación','Sexo']).mean()
+prom_ed.drop('ID de caso', axis = 1)
