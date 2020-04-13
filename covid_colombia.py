@@ -205,12 +205,23 @@ print('Grafica acumulada de Contagio, Fallecidos y Recuperados :', inf_plot, rec
 [28. Grafique las curvas de contagio, muerte y recuperación de los 10
 departamentos con mas casos de contagiados acumulados]
 """
+dc = data[data['Atención**']=='Fallecido']
+rc = data[data['Atención**']=='Recuperado']
+inf_plot_dep = data.groupby(['Departamento o Distrito' ]).size().sort_values(ascending=False).head(10).plot()
+dec_plot_dep = dc.groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10).plot()
+rec_plot_dep = rc.groupby('Departamento o Distrito').size().sort_values(ascending=False).head(10).plot()
+print('Grafica acumulada de Contagio, Fallecidos y Recuperados :', inf_plot_dep, rec_plot_dep, dec_plot_dep)
 
 """ 
 [29. Grafique las curvas de contagio, muerte y recuperación de las 10
 ciudades con mas casos de contagiados acumulados]
 """
-
+dc = data[data['Atención**']=='Fallecido']
+rc = data[data['Atención**']=='Recuperado']
+inf_plot_ct = data.groupby(['Ciudad de ubicación' ]).size().sort_values(ascending=False).head(10).plot()
+dec_plot_ct = dc.groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10).plot()
+rec_plot_ct = rc.groupby('Ciudad de ubicación').size().sort_values(ascending=False).head(10).plot()
+print('Grafica acumulada de Contagio, Fallecidos y Recuperados :', inf_plot_ct, rec_plot_ct, dec_plot_ct)
 
 """ 
 [30. Liste de mayor a menor la cantidad de fallecidos por edad en toda
